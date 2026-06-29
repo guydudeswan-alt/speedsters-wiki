@@ -5,231 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speedsters</title>
     <style>
-        @import url('https://googleapis.com');
-        :root { 
-            --bg-color: #0b0c10; 
-            --text-color: #c5c6c7; 
-            --title-color: #f5b041; 
-            --accent-color: #66fcf1; 
-            --wiki-bg: #ffffff; 
-            --wiki-text: #202122; 
-        }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            /* REPAIRED: Replaced risky external background image with secure, beautiful CSS gradients */
-            background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 100%);
-            color: var(--text-color); 
-            margin: 0; 
-            padding: 20px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            min-height: 100vh; 
-        }
-        header { 
-            text-align: center; 
-            max-width: 800px; 
-            margin-bottom: 40px; 
-            background-color: rgba(11,12,16,0.9); 
-            padding: 30px; 
-            border-radius: 12px; 
-            border: 2px solid rgba(245,176,65,0.3); 
-            box-shadow: 0 0 25px rgba(245,176,65,0.15); 
-            backdrop-filter: blur(8px); 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
-        .title-block { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            margin-bottom: 20px; 
-        }
-        .lightning-bolt { 
-            width: 120px; 
-            height: auto; 
-            filter: drop-shadow(0 0 15px #f5b041); 
-        }
-        .cinematic-text { 
-            font-family: 'Cinzel Decorative', Georgia, serif; 
-            font-size: 3.5rem; 
-            color: #ffffff; 
-            font-weight: bold; 
-            letter-spacing: 6px; 
-            text-transform: uppercase; 
-            margin-top: 5px; 
-            text-shadow: 0 0 10px rgba(245, 176, 65, 0.8), 0 0 20px rgba(230, 126, 34, 0.5); 
-        }
-        .plot-summary { 
-            font-size: 1.1rem; 
-            line-height: 1.7; 
-            color: #d1d2d3; 
-            margin: 0; 
-        }
-        .button-zone { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 15px; 
-            max-width: 900px; 
-            margin-bottom: 40px; 
-            background-color: rgba(11,12,16,0.7); 
-            padding: 15px; 
-            border-radius: 8px; 
-        }
-        .speed-btn { 
-            background-color: rgba(31,40,51,0.5); 
-            border: 2px solid var(--accent-color); 
-            color: var(--accent-color); 
-            padding: 12px 24px; 
-            font-size: 1rem; 
-            font-weight: 600; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-        }
-        .speed-btn:hover, .speed-btn.active { 
-            background-color: var(--accent-color); 
-            color: var(--bg-color); 
-            box-shadow: 0 0 20px var(--accent-color); 
-        }
-        
-        /* Continuous Failsafe List Format: Cards are completely unlocked and open by default */
-        .wiki-container { 
-            display: block !important; 
-            background-color: var(--wiki-bg); 
-            color: var(--wiki-text); 
-            max-width: 900px; 
-            width: 100%; 
-            padding: 30px; 
-            border: 1px solid #a2a9b1; 
-            box-sizing: border-box; 
-            border-radius: 2px; 
-            margin-bottom: 50px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
-            scroll-margin-top: 40px;
-        }
-        .wiki-header { 
-            border-bottom: 1px solid #a2a9b1; 
-            padding-bottom: 5px; 
-            margin-bottom: 20px; 
-        }
-        .wiki-title { 
-            font-family: 'Linux Libertine', 'Georgia', serif; 
-            font-size: 2rem; 
-            margin: 0; 
-            font-weight: normal; 
-            color: #000000;
-        }
-        .wiki-content { 
-            display: flex; 
-            flex-direction: row; 
-            gap: 20px; 
-        }
-        @media (max-width: 768px) { 
-            .wiki-content { flex-direction: column-reverse; } 
-        }
-        .wiki-text-body { 
-            flex: 2; 
-            font-size: 0.9rem; 
-            line-height: 1.6; 
-        }
-        .wiki-text-body p { 
-            margin-top: 0; 
-            margin-bottom: 1em; 
-        }
-        .wiki-section-title { 
-            font-family: 'Linux Libertine', 'Georgia', serif; 
-            font-size: 1.4rem; 
-            border-bottom: 1px solid #a2a9b1; 
-            padding-bottom: 3px; 
-            margin-top: 20px; 
-            margin-bottom: 10px; 
-            font-weight: bold; 
-            color: #000000;
-        }
-        .infobox { 
-            flex: 1; 
-            border: 1px solid #a2a9b1; 
-            background-color: #f8f9fa; 
-            padding: 10px; 
-            font-size: 0.8rem; 
-            min-width: 260px; 
-            align-self: flex-start; 
-        }
-        .infobox-title { 
-            font-size: 1rem; 
-            font-weight: bold; 
-            text-align: center; 
-            background-color: #eaecf0; 
-            padding: 5px; 
-            margin-bottom: 10px; 
-        }
-        .infobox table { 
-            width: 100%; 
-            border-collapse: collapse; 
-        }
-        .infobox th { 
-            text-align: left; 
-            vertical-align: top; 
-            width: 40%; 
-            padding: 4px 0; 
-        }
-        .infobox td { 
-            vertical-align: top; 
-            padding: 4px 0; 
-        }
+        body { font-family: sans-serif; background: #0b0c10; color: #fff; padding: 20px; text-align: center; }
+        h1 { color: #f5b041; text-transform: uppercase; }
+        .grid { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto; text-align: left; }
+        .card { background: #fff; color: #202122; padding: 15px; border-radius: 6px; }
+        h2 { font-size: 1.2rem; margin: 0 0 5px; border-bottom: 2px solid #a2a9b1; color: #000; }
+        p { margin: 0; font-size: 0.9rem; line-height: 1.4; }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="title-block">
-            <svg class="lightning-bolt" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org">
-                <circle cx="50" cy="50" r="42" stroke="#f5b041" stroke-width="4"/>
-                <circle cx="50" cy="50" r="36" stroke="#ffffff" stroke-width="1" stroke-dasharray="4 2" stroke-opacity="0.5"/>
-                <path d="M58 8L32 52H48L40 92L70 42H52L58 8Z" fill="#f5b041" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
-            </svg>
-            <div class="cinematic-text">Speedsters</div>
-        </div>
-        <p class="plot-summary">In the Arrowverse, the cosmos is bound by primal cosmic forces. The narrative centers on individuals who tap into these extra-dimensional energy fields, granting them god-like velocity to either protect timelines or modify reality itself.</p>
-    </header>
-
-    <!-- Menu Section using native scroll anchor commands -->
-    <div class="button-zone">
-        <button class="speed-btn" onclick="scrollToId('barry')">Barry Allen</button>
-        <button class="speed-btn" onclick="scrollToId('wally')">Wally West</button>
-        <button class="speed-btn" onclick="scrollToId('reverse')">Reverse-Flash</button>
-        <button class="speed-btn" onclick="scrollToId('zoom')">Zoom</button>
-        <button class="speed-btn" onclick="scrollToId('savitar')">Savitar</button>
-        <button class="speed-btn" onclick="scrollToId('godspeed')">Godspeed</button>
-        <button class="speed-btn" onclick="scrollToId('speedforce')">Speed Force</button>
-        <button class="speed-btn" onclick="scrollToId('negforce')">Negative Speed Force</button>
+    <h1>Speedsters</h1>
+    <div class="grid">
+        <div class="card"><h2>1. Barry Allen (The Flash)</h2><p><b>Lore:</b> Generator of the Speed Force. <b>Ending:</b> Convinces Cobalt Blue to co-exist, ending the war peacefully.</p></div>
+        <div class="card"><h2>2. Wally West (Kid Flash)</h2><p><b>Lore:</b> Gained speed via husks. <b>Ending:</b> Masters Zen meditation to manipulate Speed Force energy spiritually.</p></div>
+        <div class="card"><h2>3. Eobard Thawne (Reverse-Flash)</h2><p><b>Lore:</b> Barry's nemesis; created Negative Speed Force. <b>Ending:</b> Neutralized by Allegra Garcia's light blast.</p></div>
+        <div class="card"><h2>4. Hunter Zolomon (Zoom)</h2><p><b>Lore:</b> Earth-2 killer decaying from Velocity-9. <b>Ending:</b> Frozen cells and defeated by nature goddess Khione.</p></div>
+        <div class="card"><h2>5. Savitar (The God of Speed)</h2><p><b>Lore:</b> Corrupted temporal Barry clone in armor. <b>Ending:</b> Core armor panel stabbed and overloaded by Nora (XS).</p></div>
+        <div class="card"><h2>6. August Heart (Godspeed)</h2><p><b>Lore:</b> 2049 scientist using speed drones. <b>Ending:</b> Legions and real form knocked out cold by Cecile's psychic pulse.</p></div>
+        <div class="card"><h2>7. The Speed Force</h2><p><b>Lore:</b> Sentient time energy source. <b>Ending:</b> Continues guiding good speedsters in the physical shape of Nora Allen.</p></div>
+        <div class="card"><h2>8. The Negative Speed Force</h2><p><b>Lore:</b> Dark matrix fueled by rage. <b>Ending:</b> Chooses Eddie Thawne as a peaceful avatar to balance the cosmic cycle.</p></div>
     </div>
-
-    <!-- Barry Allen -->
-    <div id="barry" class="wiki-container">
-        <div class="wiki-header"><h2 class="wiki-title">Barry Allen (The Flash)</h2></div>
-        <div class="wiki-content">
-            <div class="wiki-text-body">
-                <p><b>Barry Allen</b> is a forensic scientist struck by dark-matter lightning, becoming the generator of the Speed Force.</p>
-                <div class="wiki-section-title">Deep Lore & Powers</div>
-                <p>Barry is the literal engine of the positive Speed Force. Over nine seasons, his powers evolved from simple running to phasing through solid matter, throwing lightning, and manipulating time.</p>
-                <div class="wiki-section-title">Series Finale Arc</div>
-                <p>In the final episode, Barry faces the ultimate speedster war brought on by Cobalt Blue. Instead of fighting to the death, Barry tracks Eddie into the Negative Speed Force dimension and convinces him that the positive and negative forces must live in a balanced cycle, ending the conflict peacefully. Afterward, Barry releases a massive bolt of lightning into Central City, sharing his powers with Avery Ho, Max Mercury, and Jess Chambers to create a lasting legacy of protection.</p>
-            </div>
-            <div class="infobox"><div class="infobox-title">The Flash</div><table><tr><th>Actor:</th><td>Grant Gustin</td></tr><tr><th>Source:</th><td>Speed Force</td></tr><tr><th>Status:</th><td>Active Hero</td></tr></table></div>
-        </div>
-    </div>
-
-    <!-- Wally West -->
-    <div id="wally" class="wiki-container">
-        <div class="wiki-header"><h2 class="wiki-title">Wally West (Kid Flash)</h2></div>
-        <div class="wiki-content">
-            <div class="wiki-text-body">
-                <p><b>Wally West</b> gained speed via Doctor Alchemy's husk machine, stepping up as Kid Flash to protect Central City.</p>
-                <div class="wiki-section-title">Deep Lore & Powers</div>
-                <p>Wally trained with the <i>Legends of Tomorrow</i>, mastering spiritual practices and Zen meditation. This detached him from the mechanical limits of speed, allowing him to project energy creatively.</p>
-            </div>
+</body>
+</html>
