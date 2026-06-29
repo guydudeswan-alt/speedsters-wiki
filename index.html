@@ -13,10 +13,7 @@
         .lightning-bolt { width: 120px; height: auto; filter: drop-shadow(0 0 15px #f5b041); }
         .cinematic-text { font-family: 'Cinzel Decorative', Georgia, serif; font-size: 3.5rem; color: #ffffff; font-weight: bold; letter-spacing: 6px; text-transform: uppercase; margin-top: 5px; text-shadow: 0 0 10px rgba(245, 176, 65, 0.8), 0 0 20px rgba(230, 126, 34, 0.5); }
         .plot-summary { font-size: 1.1rem; line-height: 1.7; color: #d1d2d3; margin: 0; }
-        .button-zone { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 900px; margin-bottom: 40px; background-color: rgba(11, 12, 16, 0.7); padding: 15px; border-radius: 8px; }
-        .speed-btn { display: inline-block; background-color: rgba(31, 40, 51, 0.5); border: 2px solid var(--accent-color); color: var(--accent-color); padding: 12px 24px; font-size: 1rem; font-weight: 600; border-radius: 5px; text-decoration: none; text-align: center; transition: all 0.3s ease; }
-        .speed-btn:hover { background-color: var(--accent-color); color: var(--bg-color); box-shadow: 0 0 20px var(--accent-color); }
-        .wiki-container { background-color: var(--wiki-bg); color: var(--wiki-text); max-width: 900px; width: 100%; padding: 30px; border: 1px solid #a2a9b1; box-sizing: border-box; border-radius: 2px; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); scroll-margin-top: 20px; }
+        .wiki-container { background-color: var(--wiki-bg); color: var(--wiki-text); max-width: 900px; width: 100%; padding: 30px; border: 1px solid #a2a9b1; box-sizing: border-box; border-radius: 2px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
         .wiki-header { border-bottom: 1px solid #a2a9b1; padding-bottom: 5px; margin-bottom: 20px; }
         .wiki-title { font-family: 'Linux Libertine', 'Georgia', serif; font-size: 2rem; margin: 0; font-weight: normal; }
         .wiki-content { display: flex; flex-direction: row; gap: 20px; }
@@ -42,19 +39,8 @@
         <p class="plot-summary">In the Arrowverse, the cosmos is bound by primal cosmic forces. The narrative centers on individuals who tap into these extra-dimensional energy fields, granting them god-like velocity to either protect timelines or modify reality itself.</p>
     </header>
 
-    <div class="button-zone">
-        <a href="#barry" class="speed-btn">Barry Allen</a>
-        <a href="#wally" class="speed-btn">Wally West</a>
-        <a href="#reverse" class="speed-btn">Reverse-Flash</a>
-        <a href="#zoom" class="speed-btn">Zoom</a>
-        <a href="#savitar" class="speed-btn">Savitar</a>
-        <a href="#godspeed" class="speed-btn">Godspeed</a>
-        <a href="#speedforce" class="speed-btn">Speed Force</a>
-        <a href="#negforce" class="speed-btn">Negative Speed Force</a>
-    </div>
-
     <!-- Barry Allen -->
-    <div id="barry" class="wiki-container" style="display: block;">
+    <div class="wiki-container">
         <div class="wiki-header"><h2 class="wiki-title">Barry Allen (The Flash)</h2></div>
         <div class="wiki-content">
             <div class="wiki-text-body">
@@ -62,15 +48,17 @@
                     <img class="character-portrait" src="https://nocookie.net" alt="Barry Allen">
                     <p><b>Barry Allen</b> is a forensic scientist struck by dark-matter lightning, becoming the generator of the Speed Force.</p>
                 </div>
-                <div class="wiki-section-title">Deep Lore & Finale Arc</div>
-                <p>Barry evolved from simple running to phasing through matter and time travel. In the finale, he ends the speedster war peacefully by convincing Cobalt Blue that the positive and negative forces must co-exist to preserve reality, before passing his lightning legacy onto new generations.</p>
+                <div class="wiki-section-title">Deep Lore & Powers</div>
+                <p>Barry is the literal engine of the positive Speed Force. Over nine seasons, his powers evolved from simple running to phasing through solid matter, throwing lightning, and manipulating time. His ultimate strength is his emotional resilience and refusal to kill, choosing hope over vengeance.</p>
+                <div class="wiki-section-title">Series Finale Arc</div>
+                <p>In the final episode, Barry faces the ultimate speedster war brought on by Cobalt Blue (Eddie Thawne). Instead of fighting to the death, Barry tracks Eddie into the Negative Speed Force dimension and convinces him that the positive and negative forces must live in a balanced cycle, ending the conflict peacefully. Afterward, Barry releases a massive bolt of lightning into Central City, sharing his powers with Avery Ho, Max Mercury, and Jess Chambers to create a lasting legacy of protection.</p>
             </div>
             <div class="infobox"><div class="infobox-title">The Flash</div><table><tr><th>Actor:</th><td>Grant Gustin</td></tr><tr><th>Source:</th><td>Speed Force</td></tr><tr><th>Status:</th><td>Active Hero</td></tr></table></div>
         </div>
     </div>
 
     <!-- Wally West -->
-    <div id="wally" class="wiki-container" style="display: block;">
+    <div class="wiki-container">
         <div class="wiki-header"><h2 class="wiki-title">Wally West (Kid Flash)</h2></div>
         <div class="wiki-content">
             <div class="wiki-text-body">
@@ -79,14 +67,14 @@
                     <p><b>Wally West</b> gained speed via Doctor Alchemy's husk machine, stepping up as Kid Flash to protect Central City.</p>
                 </div>
                 <div class="wiki-section-title">Deep Lore & Powers</div>
-                <p>Wally trained with the <i>Legends of Tomorrow</i>, mastering spiritual practices and Zen meditation. This connection allows him to heal rapidly and project energy creatively.</p>
+                <p>Wally trained with the <i>Legends of Tomorrow</i>, mastering spiritual practices and Zen meditation. This detached him from the mechanical limits of speed. Wally views the Speed Force as a spiritual, fluid plain of existence, allowing him to heal rapidly and project energy creatively.</p>
             </div>
             <div class="infobox"><div class="infobox-title">Kid Flash</div><table><tr><th>Actor:</th><td>Keiynan Lonsdale</td></tr><tr><th>Source:</th><td>Speed Force</td></tr></table></div>
         </div>
     </div>
 
     <!-- Reverse Flash -->
-    <div id="reverse" class="wiki-container" style="display: block;">
+    <div class="wiki-container">
         <div class="wiki-header"><h2 class="wiki-title">Eobard Thawne (Reverse-Flash)</h2></div>
         <div class="wiki-content">
             <div class="wiki-text-body">
@@ -94,15 +82,17 @@
                     <img class="character-portrait" src="https://nocookie.net" alt="Reverse-Flash">
                     <p><b>Eobard Thawne</b> is a brilliant 22nd-century speed rogue and the archenemy of Barry Allen.</p>
                 </div>
+                <div class="wiki-section-title">Deep Lore & Powers</div>
+                <p>Because the positive Speed Force rejected his toxic obsession, he used dark matter and negative emotions to create the Negative Speed Force. He is a living paradox—frequently erased from existence, yet always finding a way to return through temporal mechanics.</p>
                 <div class="wiki-section-title">Lore & Definitive Ending</div>
-                <p>Thawne created the Negative Speed Force out of absolute hatred. Plucked from time to fight in the final war, he plans to demolish Barry's legacy but is blasted and neutralized by Allegra Garcia using a massive wave of electromagnetic light energy.</p>
+                <p>Plucked from time to fight in the final war, he plans to demolish Barry's legacy but is blasted and neutralized by Allegra Garcia using a massive wave of electromagnetic light energy, dispelling him back to his original timeline erasure point.</p>
             </div>
             <div class="infobox"><div class="infobox-title">Reverse-Flash</div><table><tr><th>Actor:</th><td>Tom Cavanagh</td></tr><tr><th>Source:</th><td>Negative Force</td></tr><tr><th>Fate:</th><td>Defeated by Allegra</td></tr></table></div>
         </div>
     </div>
 
     <!-- Zoom -->
-    <div id="zoom" class="wiki-container" style="display: block;">
+    <div class="wiki-container">
         <div class="wiki-header"><h2 class="wiki-title">Hunter Zolomon (Zoom)</h2></div>
         <div class="wiki-content">
             <div class="wiki-text-body">
@@ -110,3 +100,5 @@
                     <img class="character-portrait" src="https://nocookie.net" alt="Zoom">
                     <p><b>Hunter Zolomon</b> is a demonic serial killer from Earth-2 hunting down other speedsters to steal their speed vectors.</p>
                 </div>
+                <div class="wiki-section-title">Deep Lore & Powers</div>
+                <p>Because his speed was tied to the fatal Velocity-9 drug, his cells were constantly decaying. Zoom is defined by pure, terrifying desperation, traveling across the multiverse solely to steal the speed of other speedsters to stay alive.</p>
