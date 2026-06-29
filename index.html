@@ -6,243 +6,138 @@
     <title>Speedsters Wiki</title>
     <style>
         @import url('https://googleapis.com');
-        
-        :root { 
-            --bg-color: #0b0c10; 
-            --container-bg: rgba(255, 255, 255, 0.95); 
-            --text-color: #c5c6c7; 
-            --title-color: #f5b041; 
-            --accent-color: #66fcf1; 
-            --wiki-text: #202122; 
-        }
-
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-image: linear-gradient(rgba(11,12,16,0.85), rgba(11,12,16,0.85)), url('https://wallpapercave.com'); 
-            background-size: cover; 
-            background-position: center top; 
-            background-attachment: fixed; 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            margin: 0; 
-            padding: 20px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            min-height: 100vh; 
-        }
-
-        header { 
-            text-align: center; 
-            max-width: 900px; 
-            margin-bottom: 40px; 
-            background-color: rgba(11, 12, 16, 0.8); 
-            padding: 30px; 
-            border-radius: 12px; 
-            border: 2px solid rgba(245,176,65,0.3); 
-            box-shadow: 0 0 25px rgba(245,176,65,0.15); 
-            backdrop-filter: blur(8px); 
-        }
-
-        .title-block { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            margin-bottom: 20px; 
-        }
-
-        .lightning-bolt { 
-            width: 120px; 
-            height: auto; 
-            filter: drop-shadow(0 0 15px #f5b041); 
-        }
-
-        .cinematic-text { 
-            font-family: 'Cinzel Decorative', Georgia, serif; 
-            font-size: 3.5rem; 
-            color: #ffffff; 
-            font-weight: bold; 
-            letter-spacing: 6px; 
-            text-transform: uppercase; 
-            margin-top: 5px; 
-            text-shadow: 0 0 10px rgba(245, 176, 65, 0.8), 0 0 20px rgba(230, 126, 34, 0.5); 
-        }
-
-        .plot-summary { 
-            font-size: 1.1rem; 
-            line-height: 1.7; 
-            color: #d1d2d3; 
-            margin: 0; 
-        }
-
-        /* Continuous Un-hidden Master Grid Layout */
-        .master-wiki-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            width: 100%;
-            max-width: 900px;
-        }
-
-        .wiki-container { 
-            background-color: var(--container-bg); 
-            color: var(--wiki-text); 
-            width: 100%; 
-            padding: 30px; 
-            border: 1px solid #a2a9b1; 
-            box-sizing: border-box; 
-            border-radius: 4px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
-        }
-
-        .wiki-header { 
-            border-bottom: 2px solid #a2a9b1; 
-            padding-bottom: 5px; 
-            margin-bottom: 20px; 
-        }
-
-        .wiki-title { 
-            font-family: 'Linux Libertine', 'Georgia', serif; 
-            font-size: 2.2rem; 
-            margin: 0; 
-            font-weight: normal; 
-            color: #000000;
-        }
-
-        .wiki-content { 
-            display: flex; 
-            flex-direction: row; 
-            gap: 20px; 
-        }
-
-        @media (max-width: 768px) { 
-            .wiki-content { flex-direction: column-reverse; } 
-        }
-
-        .wiki-text-body { 
-            flex: 2; 
-            font-size: 0.95rem; 
-            line-height: 1.6; 
-        }
-
-        .wiki-text-body p { 
-            margin-top: 0; 
-            margin-bottom: 1.2em; 
-        }
-
-        .profile-row { 
-            display: flex; 
-            gap: 20px; 
-            align-items: flex-start; 
-            margin-bottom: 15px; 
-        }
-
-        .character-portrait { 
-            width: 150px; 
-            height: auto; 
-            border-radius: 4px; 
-            border: 1px solid #a2a9b1; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15); 
-            background-color: #f8f9fa; 
-        }
-
-        .wiki-section-title { 
-            font-family: 'Linux Libertine', 'Georgia', serif; 
-            font-size: 1.5rem; 
-            border-bottom: 1px solid #a2a9b1; 
-            padding-bottom: 3px; 
-            margin-top: 25px; 
-            margin-bottom: 15px; 
-            font-weight: bold; 
-            color: #000000;
-        }
-
-        .infobox { 
-            flex: 1; 
-            border: 1px solid #a2a9b1; 
-            background-color: #f8f9fa; 
-            padding: 12px; 
-            font-size: 0.85rem; 
-            min-width: 270px; 
-            align-self: flex-start; 
-        }
-
-        .infobox-title { 
-            font-size: 1.05rem; 
-            font-weight: bold; 
-            text-align: center; 
-            background-color: #eaecf0; 
-            padding: 6px; 
-            margin-bottom: 10px; 
-            border-bottom: 1px solid #a2a9b1;
-        }
-
-        .infobox table { 
-            width: 100%; 
-            border-collapse: collapse; 
-        }
-
-        .infobox th { 
-            text-align: left; 
-            vertical-align: top; 
-            width: 40%; 
-            padding: 6px 0; 
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .infobox td { 
-            vertical-align: top; 
-            padding: 6px 0; 
-            color: #333333;
-            border-bottom: 1px solid #f0f0f0;
-        }
+        :root { --bg: #0b0c10; --card: rgba(255, 255, 255, 0.95); --text: #202122; --accent: #f5b041; }
+        body { font-family: 'Inter', sans-serif; background-image: linear-gradient(rgba(11,12,16,0.85), rgba(11,12,16,0.85)), url('https://wallpapercave.com'); background-size: cover; background-position: center top; background-attachment: fixed; background-color: var(--bg); color: #c5c6c7; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        header { text-align: center; max-width: 800px; margin-bottom: 40px; background-color: rgba(11, 12, 16, 0.8); padding: 30px; border-radius: 12px; border: 2px solid rgba(245,176,65,0.3); backdrop-filter: blur(8px); }
+        .bolt { width: 80px; filter: drop-shadow(0 0 10px #f5b041); margin-bottom: 10px; }
+        h1 { font-family: 'Cinzel Decorative', Georgia, serif; font-size: 3rem; color: #fff; margin: 0 0 15px; letter-spacing: 4px; text-transform: uppercase; text-shadow: 0 0 10px rgba(245,176,65,0.8); }
+        .summary { font-size: 1.1rem; line-height: 1.6; color: #d1d2d3; }
+        .wiki-grid { display: flex; flex-direction: column; gap: 30px; width: 100%; max-width: 800px; }
+        .card { background-color: var(--card); color: var(--text); padding: 25px; border-radius: 6px; border: 1px solid #a2a9b1; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        h2 { font-family: 'Cinzel Decorative', serif; font-size: 1.8rem; margin: 0 0 15px; border-bottom: 2px solid #a2a9b1; padding-bottom: 5px; color: #000; }
+        .content { display: flex; gap: 20px; align-items: flex-start; }
+        @media (max-width: 600px) { .content { flex-direction: column; } }
+        .badge { width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); box-shadow: 0 4px 10px rgba(0,0,0,0.3); flex-shrink: 0; border: 3px solid #fff; }
+        .info { flex: 1; font-size: 0.95rem; line-height: 1.6; }
+        .section-title { font-weight: bold; font-size: 1.1rem; margin-top: 15px; margin-bottom: 5px; border-bottom: 1px solid #ddd; color: #111; }
+        /* Badge Lightning Bolt Colors */
+        .b-barry { background: linear-gradient(135deg, #e74c3c, #f1c40f); }
+        .b-wally { background: linear-gradient(135deg, #f1c40f, #e67e22); }
+        .b-reverse { background: linear-gradient(135deg, #f39c12, #2c3e50); }
+        .b-zoom { background: linear-gradient(135deg, #2c3e50, #111111); }
+        .b-savitar { background: linear-gradient(135deg, #3498db, #95a5a6); }
+        .b-godspeed { background: linear-gradient(135deg, #ffffff, #f1c40f); color: #333 !important; }
+        .b-sf { background: linear-gradient(135deg, #f1c40f, #ffffff); color: #333 !important; }
+        .b-nsf { background: linear-gradient(135deg, #9b59b6, #e74c3c); }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="title-block">
-            <svg class="lightning-bolt" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org">
-                <circle cx="50" cy="50" r="42" stroke="#f5b041" stroke-width="4"/>
-                <circle cx="50" cy="50" r="36" stroke="#ffffff" stroke-width="1" stroke-dasharray="4 2" stroke-opacity="0.5"/>
-                <path d="M58 8L32 52H48L40 92L70 42H52L58 8Z" fill="#f5b041" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
-            </svg>
-            <div class="cinematic-text">Speedsters</div>
-        </div>
-        <p class="plot-summary">In the Arrowverse, the cosmos is bound by primal cosmic forces. The narrative centers on individuals who tap into these extra-dimensional energy fields, granting them god-like velocity to either protect timelines or modify reality itself. The grand conflict reaches its ultimate climax in the series finale, "A New World, Part Four," where the forces of light and dark battle one last time to decide the fate of the timeline.</p>
+        <svg class="bolt" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org"><circle cx="50" cy="50" r="42" stroke="#f5b041" stroke-width="4"/><path d="M58 8L32 52H48L40 92L70 42H52L58 8Z" fill="#f5b041" stroke="#fff" stroke-width="2"/></svg>
+        <h1>Speedsters</h1>
+        <p class="summary">In the Arrowverse, individuals tap into cosmic forces granting god-like velocity to protect timelines or conquer reality, clashing in an epic finale battle.</p>
     </header>
 
-    <div class="master-wiki-grid">
-
-        <!-- Barry Allen -->
-        <div class="wiki-container">
-            <div class="wiki-header"><h2 class="wiki-title">Barry Allen (The Flash)</h2></div>
-            <div class="wiki-content">
-                <div class="wiki-text-body">
-                    <div class="profile-row">
-                        <img class="character-portrait" src="https://nocookie.net" alt="Barry Allen">
-                        <p><b>Bartholomew Henry "Barry" Allen</b> is a forensic scientist struck by dark-matter lightning, becoming the generator of the Speed Force.</p>
-                    </div>
-                    <div class="wiki-section-title">Deep Lore & Powers</div>
-                    <p>Barry is the literal engine of the positive Speed Force. Over nine seasons, his powers evolved from simple running to phasing through solid matter, throwing lightning, and manipulating time. His ultimate strength is his emotional resilience and refusal to kill, choosing hope over vengeance.</p>
-                    <div class="wiki-section-title">Series Finale Arc</div>
-                    <p>In the final episode, Barry faces the ultimate speedster war brought on by Cobalt Blue (Eddie Thawne). Instead of fighting to the death, Barry tracks Eddie into the Negative Speed Force dimension and convinces him that the positive and negative forces must live in a balanced cycle, ending the conflict peacefully. Afterward, Barry releases a massive bolt of lightning into Central City, sharing his powers with Avery Ho, Max Mercury, and Jess Chambers to create a lasting legacy of protection.</p>
+    <div class="wiki-grid">
+        <!-- BARRY -->
+        <div class="card">
+            <h2>Barry Allen (The Flash)</h2>
+            <div class="content">
+                <div class="badge b-barry">⚡ RED</div>
+                <div class="info">
+                    <p><b>Barry Allen</b> is a forensic scientist struck by dark-matter lightning, becoming the physical engine and soul of the Speed Force.</p>
+                    <div class="section-title">Deep Lore & Finale Arc</div>
+                    <p>Barry evolved from running to phasing through solid objects and traveling through time. In the series finale, he stops the war peacefully by convincing Cobalt Blue that the positive and negative forces must co-exist to balance the universe, before sharing his speed with future heroes.</p>
                 </div>
-                <div class="infobox"><div class="infobox-title">The Flash</div><table><tr><th>Actor:</th><td>Grant Gustin</td></tr><tr><th>Source:</th><td>Speed Force</td></tr><tr><th>Status:</th><td>Active Hero</td></tr></table></div>
             </div>
         </div>
 
-        <!-- Wally West -->
-        <div class="wiki-container">
-            <div class="wiki-header"><h2 class="wiki-title">Wally West (Kid Flash)</h2></div>
-            <div class="wiki-content">
-                <div class="wiki-text-body">
-                    <div class="profile-row">
-                        <img class="character-portrait" src="https://nocookie.net" alt="Wally West">
-                        <p><b>Wallace F. "Wally" West</b> gained speed via Doctor Alchemy's husk machine, stepping up as Kid Flash to protect Central City.</p>
-                    </div>
-                    <div class="wiki-section-title">Deep Lore & Powers</div>
-                    <p>Wally trained with the <i>Legends of Tomorrow</i>, mastering spiritual practices and Zen meditation. This detached him from the mechanical limits of speed. Wally views the Speed Force as a spiritual, fluid plain of existence, allowing him to project energy creatively.</p>
+        <!-- WALLY -->
+        <div class="card">
+            <h2>Wally West (Kid Flash)</h2>
+            <div class="content">
+                <div class="badge b-wally">⚡ YEL</div>
+                <div class="info">
+                    <p><b>Wally West</b> gained speed via Doctor Alchemy's husk machine, joining Team Flash as Kid Flash before venturing out on his own journey.</p>
+                    <div class="section-title">Deep Lore & Powers</div>
+                    <p>Wally trained alongside the <i>Legends of Tomorrow</i>, mastering advanced Zen meditation and spiritual techniques. This unique approach allows him to heal rapidly, manipulate energy, and interact with the Speed Force plain fluids in a deeply artistic way.</p>
                 </div>
-                <div class="infobox"><div class="infobox-title">Kid Flash</div><table><tr><th>Actor:</th><td>Keiynan Lonsdale</td></tr><tr><th>Source:</th><td>Speed Force</td></tr></table></div>
+            </div>
+        </div>
+
+        <!-- REVERSE FLASH -->
+        <div class="card">
+            <h2>Eobard Thawne (Reverse-Flash)</h2>
+            <div class="content">
+                <div class="badge b-reverse">⚡ NEG</div>
+                <div class="info">
+                    <p><b>Eobard Thawne</b> is a brilliant rogue scientist from the 22nd century and Barry Allen's absolute historical nemesis.</p>
+                    <div class="section-title">Lore & Definitive Ending</div>
+                    <p>Thawne created the Negative Speed Force out of pure hatred. Pulucked from time to join the final speedster war, he attempts to smash Barry's legacy forever but is entirely neutralized and vaporized by <b>Allegra Garcia</b> using a massive blast of electromagnetic light energy.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZOOM -->
+        <div class="card">
+            <h2>Hunter Zolomon (Zoom)</h2>
+            <div class="content">
+                <div class="badge b-zoom">⚡ BLK</div>
+                <div class="info">
+                    <p><b>Hunter Zolomon</b> is a terrifying serial killer from Earth-2 obsessed with hunting speedsters to siphon their kinetic energy vectors.</p>
+                    <div class="section-title">Lore & Definitive Ending</div>
+                    <p>Zoom was originally dragged into the speed dimension and turned into the Black Flash by Time Wraiths. Brought into the final war from 2016, he is permanently stopped by the nature goddess <b>Khione</b>, who freezes his atmospheric moisture to trap his cells entirely.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SAVITAR -->
+        <div class="card">
+            <h2>Savitar (The God of Speed)</h2>
+            <div class="content">
+                <div class="badge b-savitar">⚡ ARM</div>
+                <div class="info">
+                    <p><b>Savitar</b> is a tragic temporal clone (Time Remnant) of Barry Allen driven insane by abandonment and rejection.</p>
+                    <div class="section-title">Lore & Definitive Ending</div>
+                    <p>He constructed a giant mechanical metallic armor set and claimed to be the first speedster god. Brought into the final war from 2017, he attacks Barry's daughter, <b>Nora West-Allen (XS)</b>, who phases through his arm-blade and stabs his core panel, overloading the armor completely.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- GODSPEED -->
+        <div class="card">
+            <h2>August Heart (Godspeed)</h2>
+            <div class="content">
+                <div class="badge b-godspeed">⚡ WHT</div>
+                <div class="info">
+                    <p><b>August Heart</b> is a criminal scientist from 2049 who engineered artificial velocity using specialized tachyon matrix nodes.</p>
+                    <div class="section-title">Lore & Definitive Ending</div>
+                    <p>Godspeed deploys an army of drone speed clones to harvest organic velocity. In the series finale, his entire clone legion is knocked out simultaneously by <b>Cecile Horton (Virtue)</b> using an amplified telepathic emotion blast across Central City.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPEED FORCE -->
+        <div class="card">
+            <h2>The Speed Force</h2>
+            <div class="content">
+                <div class="badge b-sf">⚡ SF</div>
+                <div class="info">
+                    <p>The <b>Speed Force</b> is a sentient cosmic energy entity representing time progression and movement throughout the multiverse.</p>
+                    <div class="section-title">Deep Lore</div>
+                    <p>It fuels all positive speed heroes and frequently talks to Barry Allen by manifesting itself in the physical visual form of his deceased mother, Nora Allen, to guide him or protect history's natural order.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEGATIVE SPEED FORCE -->
+        <div class="card">
+            <h2>The Negative Speed Force</h2>
+            <div class="content">
+                <div class="badge b-nsf">⚡ NSF</div>
+                <div class="info">
+                    <p>The <b>Negative Speed Force</b> is a corrupt, dark energy matrix generated by Thawne that feeds entirely on rage and envy.</p>
+                    <div class="section-title">Lore & Finale Status</div>
+
+                    
