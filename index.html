@@ -55,6 +55,9 @@
             width: 100%;
             max-width: 500px;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .logo-img {
@@ -62,6 +65,7 @@
             height: auto;
             display: block;
             filter: drop-shadow(0 0 15px rgba(245, 176, 65, 0.6));
+            pointer-events: none;
         }
 
         .plot-summary {
@@ -71,6 +75,7 @@
             margin: 0;
         }
 
+        /* Interactive Navigation Container Grid Layout */
         .button-zone {
             display: flex;
             flex-wrap: wrap;
@@ -82,6 +87,8 @@
             padding: 15px;
             border-radius: 8px;
             backdrop-filter: blur(3px);
+            position: relative;
+            z-index: 10;
         }
 
         .speed-btn {
@@ -205,9 +212,9 @@
 <body>
 
     <header>
-        <!-- Injected Logo graphic with built-in drop-shadow aura styling -->
         <div class="logo-container">
-            <img class="logo-img" src="https://squarespace-cdn.com" alt="The Flash Logo">
+            <!-- Unblocked Public Wikimedia Mirror Asset for The Flash Title -->
+            <img class="logo-img" src="https://wikimedia.org" alt="The Flash Logo">
         </div>
         <p class="plot-summary">
             In the Arrowverse, the cosmos is bound by primal cosmic forces. The narrative centers on individuals who tap into these extra-dimensional energy fields, granting them god-like velocity. While heroic speedsters run to protect timelines and save multiverses, villainous speedsters weaponize their momentum to rewrite history, conquer worlds, and escape death. This eternal race alters reality itself, creating a fragile balance between absolute light and corrupting darkness. The grand conflict reaches its ultimate climax in the series finale, "A New World, Part Four," where the forces of light and dark battle one last time to decide the fate of the timeline.
@@ -251,6 +258,3 @@
         </div>
     </div>
 
-    <!-- Wally West -->
-    <div id="wally" class="wiki-container">
-        <div class="wiki-header"><h2 class="wiki-title">Wally West (Kid Flash)</h2></div>
